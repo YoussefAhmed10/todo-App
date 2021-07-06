@@ -32,23 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: Icon(
-          Icons.menu,
-        ),
-        title: Text(
-          'Firs app',
-        ),
-        actions: [
-          Icon(
-            Icons.notification_important,
-          ),
-          Icon(
-            Icons.search,
-          ),
-        ],
-      ),
-    );
+    return Scaffold();
   }
 }

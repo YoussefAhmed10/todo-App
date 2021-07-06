@@ -1,15 +1,11 @@
 import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterapptestandroidestudio/modules/archivetasks/archivedtasks.dart';
-import 'package:flutterapptestandroidestudio/modules/donetasks/donetasks.dart';
-import 'package:flutterapptestandroidestudio/modules/newtasks/newtasks.dart';
-//import 'package:flutterapptestandroidestudio/shared/constance.dart';
 import 'package:flutterapptestandroidestudio/shared/cubit/cubit.dart';
 import 'package:flutterapptestandroidestudio/shared/cubit/states.dart';
 import 'package:intl/intl.dart';
-import 'package:sqflite/sqflite.dart';
 
+// ignore: must_be_immutable
 class HomeLayout extends StatelessWidget {
   final scaffoldkey = GlobalKey<ScaffoldState>();
   final formkey = GlobalKey<FormState>();
@@ -50,15 +46,6 @@ class HomeLayout extends StatelessWidget {
                       date: dateController.text,
                       time: timeController.text,
                     );
-                    //insertIntoDatabase(
-                    //   titleController.text,
-                    //   dateController.text,
-                    //   timeController.text,
-                    // )
-                    //.then((value) {
-                    //   Navigator.pop(context);
-                    //   cubit.changeBottomSheet(isShow: false ,icon:Icons.add,);
-                    // });
                   }
                 } else {
                   scaffoldkey.currentState
@@ -79,7 +66,7 @@ class HomeLayout extends StatelessWidget {
                                   },
                                   validator: (String value) {
                                     if (value.isEmpty) {
-                                      return 'title must nor be empty';
+                                      return 'title must not be empty';
                                     }
                                     return null;
                                   },
@@ -114,7 +101,7 @@ class HomeLayout extends StatelessWidget {
                                   },
                                   validator: (String value) {
                                     if (value.isEmpty) {
-                                      return 'time must nor be empty';
+                                      return 'time must not be empty';
                                     }
                                     return null;
                                   },
@@ -175,7 +162,6 @@ class HomeLayout extends StatelessWidget {
                       )
                       .closed
                       .then((value) {
-                    // getDataFromDataBase(database).then((value) {
                     cubit.changeBottomSheet(
                       isShow: false,
                       icon: Icons.edit,
@@ -185,7 +171,6 @@ class HomeLayout extends StatelessWidget {
                     isShow: true,
                     icon: Icons.add,
                   );
-                  // });
                 }
               },
               child: Icon(cubit.fabIcon),
@@ -209,9 +194,5 @@ class HomeLayout extends StatelessWidget {
         },
       ),
     );
-  }
-
-  Future<String> getName() async {
-    return 'yousef ahmed';
   }
 }
