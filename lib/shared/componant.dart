@@ -5,13 +5,22 @@ import 'package:flutterapptestandroidestudio/shared/cubit/cubit.dart';
 Widget buildTaskItem(Map model, context) {
   return Dismissible(
     key: Key(model['id'].toString()),
+    background: Container(
+      color: Colors.red,
+    ),
     child: Padding(
       padding: EdgeInsets.all(20.0),
       child: Row(
         children: [
           CircleAvatar(
-            radius: 40,
-            child: Text('${model['time']}'),
+            radius: 30,
+            child: Text(
+              '${model['time']}',
+              style: TextStyle(
+                fontSize: 10,
+                //fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           SizedBox(
             width: 20,
@@ -24,8 +33,8 @@ Widget buildTaskItem(Map model, context) {
                 Text(
                   ('${model['tilte']}'),
                   style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    //fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
@@ -34,6 +43,7 @@ Widget buildTaskItem(Map model, context) {
                 Text(
                   ('${model['date']}'),
                   style: TextStyle(
+                    fontSize: 10,
                     color: Colors.grey,
                   ),
                 ),
